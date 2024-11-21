@@ -22,6 +22,7 @@ int main() {
 
     for (int i = 1; i <= ROLLS; i++) {
         dice1 = rand() % SIDES + 1;
+        dice2 = rand() % SIDES + 1;
         sum = dice1 + dice2;
         results[sum]++;
     }
@@ -30,9 +31,9 @@ int main() {
         actual[i] = (double)results[i] / ROLLS;
     }
 
-    printf("點數和\t出現次數\t理論機率\t實際比例\t差異\n");
+    printf("results\ttimes\t\ttheoretical\tactual\n");
     for (int i = 2; i <= 12; i++) {
-        printf("%d\t%d\t\t%.4f\t\t%.4f\t\t%.4f\n", i, results[i], theoretical[i], actual[i], fabs(theoretical[i] - actual[i]));
+        printf("%d\t%d\t\t%.4f\t\t%.4f\n", i, results[i], theoretical[i], actual[i]);
     }
 
     return 0;
